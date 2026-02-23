@@ -54,3 +54,11 @@ Credentials stored in `~/.dblebox/` - persists across sessions.
 ## License
 
 MIT
+
+## Integration
+
+### OpenClaw / ClawHub
+See [SKILL.md](./SKILL.md) for skill integration.
+
+### Claude Code
+See [CLAUDE.md](./CLAUDE.md) for single-message setup instructions.
