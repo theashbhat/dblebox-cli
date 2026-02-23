@@ -1,0 +1,24 @@
+{
+  "name": "dblebox-cli",
+  "version": "1.0.0",
+  "description": "CLI for dblebox - thread-based communication",
+  "type": "module",
+  "bin": {
+    "dblebox": "./dist/cli.js"
+  },
+  "scripts": {
+    "build": "bun build src/cli.ts --outdir dist --target node",
+    "dev": "bun run src/cli.ts",
+    "start": "node dist/cli.js"
+  },
+  "dependencies": {
+    "commander": "^12.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "typescript": "^5.0.0"
+  },
+  "author": "Tony <tony@abstractlaboratories.com>",
+  "license": "MIT",
+  "private": true
+}
