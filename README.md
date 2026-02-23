@@ -65,3 +65,11 @@ Built by reverse-engineering the dblebox web app. Key endpoints:
 - `PUT /api/secure/comment` - Add/update comment
 - `PUT /api/secure/threads/archive` - Archive thread
 - `PUT /api/secure/threads/snooze` - Snooze thread
+
+### Collaboration
+
+```bash
+dblebox invite <threadId> <username>   # Add someone to thread
+dblebox tag <threadId> <username>      # Alias for invite
+dblebox uninvite <threadId> <username> # Remove from thread
+```

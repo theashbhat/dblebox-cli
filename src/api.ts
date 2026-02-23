@@ -203,3 +203,19 @@ export async function snoozeThread(threadId: string, duration: string): Promise<
   });
   return response.json();
 }
+
+export async function inviteToThread(threadId: string, invitee: string): Promise<any> {
+  const response = await request("/api/secure/threads/invite", {
+    method: "POST",
+    body: JSON.stringify({ thread_id: threadId, invitee }),
+  });
+  return response.json();
+}
+
+export async function uninviteFromThread(threadId: string, memberId: string): Promise<any> {
+  const response = await request("/api/secure/threads/uninvite", {
+    method: "POST",
+    body: JSON.stringify({ thread_id: threadId, member_id: memberId }),
+  });
+  return response.json();
+}

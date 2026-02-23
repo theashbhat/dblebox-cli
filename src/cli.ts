@@ -178,4 +178,46 @@ program.command("snooze <threadId> [duration]")
     console.log(`💤 Snoozed for ${duration}`);
   });
 
+
+program.command("invite <threadId> <username>")
+  .alias("add")
+  .alias("tag")
+  .description("Invite/tag someone to a thread")
+  .action(async (threadId, username) => {
+    // Support short IDs
+    if (threadId.length < 36) {
+      const threads = await api.getThreads({ all: true });
+      const match = threads.find((t: any) => (t.thread?.id || t.id || "").startsWith(threadId));
+      if (match) threadId = match.thread?.id || match.id;
+    }
+    
+    try {
+      await api.inviteToThread(threadId, username);
+      console.log(`✅ Invited @${username} to thread`);
+    } catch (e: any) {
+      console.error(`❌ Failed to invite: ${e.message || e}`);
+      process.exit(1);
+    }
+  });
+
+program.command("uninvite <threadId> <username>")
+  .alias("remove")
+  .description("Remove someone from a thread")
+  .action(async (threadId, username) => {
+    if (threadId.length < 36) {
+      const threads = await api.getThreads({ all: true });
+      const match = threads.find((t: any) => (t.thread?.id || t.id || "").startsWith(threadId));
+      if (match) threadId = match.thread?.id || match.id;
+    }
+    
+    try {
+      await api.uninviteFromThread(threadId, username);
+      console.log(`✅ Removed @${username} from thread`);
+    } catch (e: any) {
+      console.error(`❌ Failed to remove: ${e.message || e}`);
+      process.exit(1);
+    }
+  });
+
+
 program.parse();
