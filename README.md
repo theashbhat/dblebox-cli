@@ -16,6 +16,14 @@ echo 'alias dblebox="bun run ~/.dblebox-cli/src/cli.ts"' >> ~/.bashrc
 source ~/.bashrc
 ```
 
+## Claude Code Setup
+
+Just send Claude this message:
+
+> Set up dblebox CLI from https://github.com/theashbhat/dblebox-cli
+
+Claude will clone, install, and configure it automatically.
+
 ## Usage
 
 ### Login
@@ -40,7 +48,7 @@ dblebox logout                    # Clear session
 ### Aliases
 - `dblebox ls` → threads
 - `dblebox tag` → invite
-- `dblebox add` → invite
+- `dblebox add` → invite  
 - `dblebox remove` → uninvite
 
 ## Requirements
@@ -51,14 +59,11 @@ dblebox logout                    # Clear session
 
 Credentials stored in `~/.dblebox/` - persists across sessions.
 
+## Integration
+
+- [SKILL.md](./SKILL.md) - OpenClaw / ClawHub skill
+- [CLAUDE.md](./CLAUDE.md) - Detailed Claude Code setup
+
 ## License
 
 MIT
-
-## Integration
-
-### OpenClaw / ClawHub
-See [SKILL.md](./SKILL.md) for skill integration.
-
-### Claude Code
-See [CLAUDE.md](./CLAUDE.md) for single-message setup instructions.
